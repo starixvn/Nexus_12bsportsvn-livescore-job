@@ -1,18 +1,18 @@
 ﻿namespace SabaNews.Livescore.ScheduledTasks.Tests.Workers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
     using AutoFixture;
+    using Models;
     using NSubstitute;
-    using SabaNews.Core.Models;
-    using SabaNews.Core.Services;
+    using SabaNews.Livescore.Core.Models;
+    using SabaNews.Livescore.Core.Services;
     using SabaNews.Livescore.Provider.API.Models.Team;
     using SabaNews.Livescore.Provider.API.Services;
-    using SabaNews.Livescore.ScheduledTasks.Models;
     using SabaNews.Livescore.ScheduledTasks.Workers;
     using SabaNews.Livescore.SyncData.Models.HeadToHead;
     using SabaNews.Livescore.SyncData.Services.Interfaces;
+    using System;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
     using Xunit;
 
     public class SyncHeadToHeadFromCurrentDateToFutureWorkerTests

@@ -1,12 +1,12 @@
 ﻿namespace SabaNews.Livescore.Provider.API.Tests
 {
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
     using AutoFixture;
+    using Models.Season;
     using Newtonsoft.Json;
     using NSubstitute;
-    using SabaNews.Livescore.Provider.API.Models.Season;
-    using SabaNews.Livescore.Provider.API.Services;
+    using Services;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
     using Xunit;
 
     public class FetchSeasonServiceTests

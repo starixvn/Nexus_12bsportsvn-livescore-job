@@ -1,10 +1,10 @@
 ﻿namespace SabaNews.Livescore.Provider.API.Services
 {
+    using Models.Matches;
+    using SabaNews.Livescore.Models.Synchronous;
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using SabaNews.Livescore.Models.Synchronous;
-    using SabaNews.Livescore.Provider.API.Models.Matches;
 
     public interface IFetchMatchService
     {

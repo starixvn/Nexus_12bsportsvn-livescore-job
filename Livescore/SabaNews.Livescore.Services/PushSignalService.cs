@@ -1,14 +1,14 @@
 ﻿namespace SabaNews.Livescore.Services
 {
+    using Interfaces;
+    using Microsoft.AspNetCore.Http.Connections;
+    using Microsoft.AspNetCore.SignalR.Client;
+    using Models.Match;
+    using SabaNews.Livescore.Core.Models;
+    using SabaNews.Livescore.Core.Services;
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Microsoft.AspNetCore.Http.Connections;
-    using Microsoft.AspNetCore.SignalR.Client;
-    using SabaNews.Core.Services;
-    using SabaNews.Livescore.Core.Models;
-    using SabaNews.Livescore.Models.Match;
-    using SabaNews.Livescore.Services.Interfaces;
 
     public class PushSignalService : IPushSignalService
     {

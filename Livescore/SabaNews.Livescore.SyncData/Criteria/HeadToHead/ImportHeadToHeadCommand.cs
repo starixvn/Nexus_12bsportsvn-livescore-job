@@ -1,7 +1,7 @@
-﻿namespace SabaNews.Livescore.SyncData.Criteria.HeadToHead
-{
-    using SabaNews.Core.Models;
+﻿using SabaNews.Livescore.Core.Models;
 
+namespace SabaNews.Livescore.SyncData.Criteria.HeadToHead
+{
     public class ImportHeadToHeadCommand : BaseNonQueryCommand
     {
         public string HeadToHeadJson { get; set; }

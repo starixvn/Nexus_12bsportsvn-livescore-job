@@ -1,12 +1,13 @@
-﻿namespace SabaNews.Livescore.Services
+﻿using SabaNews.Livescore.Core.Models;
+
+namespace SabaNews.Livescore.Services
 {
-    using SabaNews.Core.Helper;
-    using SabaNews.Core.Models;
-    using SabaNews.Core.Services;
-    using SabaNews.Livescore.Models.League;
-    using SabaNews.Livescore.Models.Match;
-    using SabaNews.Livescore.Models.Team;
-    using SabaNews.Livescore.Services.Criteria.League;
+    using Criteria.League;
+    using Models.League;
+    using Models.Match;
+    using Models.Team;
+    using SabaNews.Livescore.Core.Extensions;
+    using SabaNews.Livescore.Core.Services;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
@@ -14,6 +15,7 @@
     public class LeagueService : ILeagueService
     {
         private readonly IBaseService baseService;
+
         public LeagueService(IBaseService baseService)
         {
             this.baseService = baseService;
@@ -31,17 +33,17 @@
             var top = await baseService.GetDataAsync<TopScorers>(top10ScorersCriteria);
             return top.ToList();
         }
+
         public async Task<IList<Player>> GetPlayerByIdTeamAsync(long teamId)
         {
-            var criteria = new GetPlayerByTeamIdCriteria{ TeamId = teamId };
+            var criteria = new GetPlayerByTeamIdCriteria { TeamId = teamId };
             var players = await baseService.GetDataAsync<Player>(criteria);
             return players.ToList();
         }
 
-
         public async Task<IList<TopScorers>> GetAllTopScorersAsync(long leagueId, long seasonId)
         {
-            var criteria = new GetAllTopScorersCriteria{ LeagueId = leagueId, SeasonId =seasonId };
+            var criteria = new GetAllTopScorersCriteria { LeagueId = leagueId, SeasonId = seasonId };
             var top = await baseService.GetDataAsync<TopScorers>(criteria);
             return top.ToList();
         }
@@ -68,7 +70,7 @@
         {
             var leagueItem = await GetLeagueByIdsAsync(new GetLeagueByIdsCriteria { LeagueIds = ("[" + league.LeagueId.ToString() + "]") });
             var leaguesExtra = await GetLeaguesAsync();
-            if(league.Priority > GetLeaguePriority(leaguesExtra) - 1)
+            if (league.Priority > GetLeaguePriority(leaguesExtra) - 1)
             {
                 league.Priority = GetLeaguePriority(leaguesExtra) - 1;
             }
@@ -83,7 +85,7 @@
                 LeagueIdUpdate = league.LeagueId,
                 Priority = league.Priority
             };
-            if(league.Priority > leagueItem[0].Priority)
+            if (league.Priority > leagueItem[0].Priority)
             {
                 commandUpdatePriority.Priority = leagueItem[0].Priority;
                 commandUpdatePriority.IsCheck = true;
@@ -95,7 +97,6 @@
                 commandUpdatePriority.IsCheck = false;
                 commandUpdatePriority.PriorityUpdate = 0;
                 commandUpdatePriority.IsDelete = false;
-
             }
             var result = await baseService.ExecuteNonQueryAsync(command);
             _ = await baseService.ExecuteNonQueryAsync(commandUpdatePriority);
@@ -144,7 +145,7 @@
         public static int GetLeaguePriority(IList<League> leagues)
         {
             int priority = 0;
-            foreach(var item in leagues.Where(val => val.Priority > priority))
+            foreach (var item in leagues.Where(val => val.Priority > priority))
             {
                 priority = item.Priority;
             }
@@ -168,7 +169,7 @@
 
         public async Task<(League, IList<SeasonStandings>)> GetLeagueAndSeasonStandingAsync(GetLeagueAndSeasonStandingsCriteria criteria)
         {
-            (var leagues,  var standings) = await baseService.FetchMultipleAsync<League, SeasonStandings>(criteria);
+            (var leagues, var standings) = await baseService.FetchMultipleAsync<League, SeasonStandings>(criteria);
             var league = leagues.FirstOrDefault();
             return (league, standings.ToList());
         }
@@ -245,7 +246,7 @@
 
         public async Task<IList<TopScorers>> GetTopScorersByRowNumAsync(int rowNum, long leagueId, long seasonId)
         {
-            var criteria = new GetTopScorersByRowNumCriteria { RowNum = rowNum , LeagueId = leagueId, SeasonId = seasonId};
+            var criteria = new GetTopScorersByRowNumCriteria { RowNum = rowNum, LeagueId = leagueId, SeasonId = seasonId };
             var topScorers = await baseService.GetDataAsync<TopScorers>(criteria);
             return topScorers.ToList();
         }
@@ -258,7 +259,7 @@
 
         public async Task<IList<MiniGame>> GetDetailMinigameAsync(int UserId)
         {
-            var criteria = new GetDetailMinigameCriteria { UserId = UserId};
+            var criteria = new GetDetailMinigameCriteria { UserId = UserId };
             var dataMinigame = await baseService.GetDataAsync<MiniGame>(criteria);
             return dataMinigame.ToList();
         }
@@ -278,7 +279,7 @@
 
         public async Task<IList<Season>> GetSeasonByLeagueIdAsync(long leagueId)
         {
-            var criteria = new GetSeasonByLeagueIdCriteria { LeagueId  = leagueId };
+            var criteria = new GetSeasonByLeagueIdCriteria { LeagueId = leagueId };
             var seasons = await baseService.GetDataAsync<Season>(criteria);
             return seasons.ToList();
         }
@@ -297,7 +298,7 @@
                 TeamId = model.TeamId,
                 GroupName = model.GroupName,
                 Total = model.Total,
-                Won = model.Won, 
+                Won = model.Won,
                 Draw = model.Draw,
                 Loss = model.Loss,
                 Goals = model.Goals,
@@ -313,7 +314,7 @@
                 Position = model.Position,
                 OldGroupName = model.OldGroupName
             };
-            var result =  await baseService.ExecuteNonQueryAsync(cmdUpdate);
+            var result = await baseService.ExecuteNonQueryAsync(cmdUpdate);
             if (result.IsSuccessful && (model.IsUpdatePosition || model.IsUpdateGroupName))
             {
                 result = await baseService.ExecuteNonQueryAsync(cmdUpdatePosition);

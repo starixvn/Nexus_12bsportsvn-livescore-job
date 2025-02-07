@@ -1,7 +1,7 @@
-﻿namespace SabaNews.Livescore.Services.Criteria.League
-{
-    using SabaNews.Core.Models;
+﻿using SabaNews.Livescore.Core.Models;
 
+namespace SabaNews.Livescore.Services.Criteria.League
+{
     public class UpdateTopScorersCriteria : BaseNonQueryCommand
     {
         public long PlayerId { get; set; }
@@ -12,7 +12,9 @@
         public int Assists { get; set; }
         public int Top { get; set; }
         public int RowNum { get; set; }
+
         public override string GetSettingKey() => "Livescore_Top_Scorers_Update";
+
         public override bool IsValid() => Top > 0;
     }
 }

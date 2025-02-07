@@ -1,7 +1,7 @@
 ﻿namespace SabaNews.Livescore.Services.Criteria.Match
 {
+    using Core.Enum;
     using Fanex.Data.Repository;
-    using SabaNews.Livescore.Core.Enum;
 
     public class GetMatchStatisticCriteria : CriteriaBase
     {

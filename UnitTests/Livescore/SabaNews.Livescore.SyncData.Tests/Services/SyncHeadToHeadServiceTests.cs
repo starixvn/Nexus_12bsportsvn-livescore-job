@@ -1,16 +1,16 @@
 ﻿namespace SabaNews.Livescore.SyncData.Tests.Services
 {
+    using AutoFixture;
+    using Fanex.Data.Repository;
+    using Models.HeadToHead;
+    using NSubstitute;
+    using SabaNews.Livescore.Core.Services;
+    using SabaNews.Livescore.Provider.API.Models.Team;
+    using SabaNews.Livescore.SyncData.Criteria.HeadToHead;
+    using SabaNews.Livescore.SyncData.Services;
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using AutoFixture;
-    using Fanex.Data.Repository;
-    using NSubstitute;
-    using SabaNews.Core.Services;
-    using SabaNews.Livescore.Provider.API.Models.Team;
-    using SabaNews.Livescore.SyncData.Criteria.HeadToHead;
-    using SabaNews.Livescore.SyncData.Models.HeadToHead;
-    using SabaNews.Livescore.SyncData.Services;
     using Xunit;
 
     public class SyncHeadToHeadServiceTests

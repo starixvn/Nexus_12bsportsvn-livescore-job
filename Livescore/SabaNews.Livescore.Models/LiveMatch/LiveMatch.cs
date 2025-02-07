@@ -1,8 +1,8 @@
 ﻿namespace SabaNews.Livescore.Models.LiveMatch
 {
+    using Lineup;
+    using Match;
     using System.Collections.Generic;
-    using SabaNews.Livescore.Models.Lineup;
-    using SabaNews.Livescore.Models.Match;
 
     public class LiveMatch : Match
     {

@@ -6,8 +6,8 @@
     using AutoFixture;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
-    using SabaNews.Core.Helper;
-    using SabaNews.Livescore.ScheduledTasks.Controllers;
+    using SabaNews.Livescore.Core.Extensions;
+    using Controllers;
     using Xunit;
 
     public class WhoamiControllerTests

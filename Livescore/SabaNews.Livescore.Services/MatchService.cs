@@ -1,17 +1,17 @@
 ﻿namespace SabaNews.Livescore.Services
 {
+    using Criteria.Match;
+    using Models.League;
+    using Models.Lineup;
+    using Models.Match;
+    using Models.Team;
+    using Repositories;
+    using SabaNews.Livescore.Core.Extensions;
+    using SabaNews.Livescore.Core.Models;
+    using SabaNews.Livescore.Core.Services;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using SabaNews.Core.Helper;
-    using SabaNews.Core.Models;
-    using SabaNews.Core.Services;
-    using SabaNews.Livescore.Models.League;
-    using SabaNews.Livescore.Models.Lineup;
-    using SabaNews.Livescore.Models.Match;
-    using SabaNews.Livescore.Models.Team;
-    using SabaNews.Livescore.Repositories;
-    using SabaNews.Livescore.Services.Criteria.Match;
 
     public class MatchService : IMatchService
     {
@@ -43,7 +43,7 @@
             {
                 league.Season = season.FirstOrDefault();
             }
-            
+
             var matches = ProcessFloatMatches(floatMatches);
 
             return (league, matches);
@@ -136,7 +136,6 @@
             return await matchRepository.GetMatchBySeasonFilterAsync(criteria);
         }
 
-
         public async Task<CommandResult> UpdateMatchAsync(UpdateMatchCommand cmd)
         {
             return await baseService.ExecuteNonQueryAsync(cmd);
@@ -155,10 +154,9 @@
 
         public async Task<IList<MatchSitemap>> GetMatchSitemapAsync()
         {
-            var matches = await baseService.GetDataAsync<MatchSitemap>(new GetMatchSitemapCriteria {});
+            var matches = await baseService.GetDataAsync<MatchSitemap>(new GetMatchSitemapCriteria { });
             return matches.ToList();
         }
-
 
         private List<Match> ProcessFloatMatches(IEnumerable<FloatMatchModel> floatMatches)
         {

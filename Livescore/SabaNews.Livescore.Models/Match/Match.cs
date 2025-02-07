@@ -1,8 +1,8 @@
 ﻿namespace SabaNews.Livescore.Models.Match
 {
+    using League;
     using System;
-    using SabaNews.Livescore.Models.League;
-    using SabaNews.Livescore.Models.Team;
+    using Team;
 
     public class Match
     {

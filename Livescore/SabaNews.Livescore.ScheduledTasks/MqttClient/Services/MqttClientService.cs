@@ -1,21 +1,22 @@
-﻿namespace SabaNews.Livescore.ScheduledTasks.MqttClient.Services
+﻿using SabaNews.Livescore.Core.Services;
+
+namespace SabaNews.Livescore.ScheduledTasks.MqttClient.Services
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Text;
-    using System.Threading;
-    using System.Threading.Tasks;
+    using Configurations;
     using MQTTnet;
     using MQTTnet.Client;
     using MQTTnet.Client.Connecting;
     using MQTTnet.Client.Disconnecting;
     using MQTTnet.Client.Options;
     using Newtonsoft.Json;
-    using SabaNews.Core.Services;
     using SabaNews.Livescore.Core.Extensions;
     using SabaNews.Livescore.Models.Mqtt;
-    using SabaNews.Livescore.ScheduledTasks.MqttClient.Configurations;
     using SabaNews.Livescore.Services.Interfaces;
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+    using System.Threading;
+    using System.Threading.Tasks;
 
     public class MqttClientService : IMqttClientService
     {
@@ -125,7 +126,7 @@
 
         private async Task HandleMatchDetailResponse(MqttLiveMatch match)
         {
-            var startTime = DateTimeHelper.UnixTimeStampToDateTime(match.StartTimeStamp);
+            var startTime = DateTimeUtilize.UnixTimeStampToDateTime(match.StartTimeStamp);
             await liveMatchService.UpdateLiveMatchStartTimeAsync(match.MatchId, startTime, match.StartTimeStamp);
         }
     }

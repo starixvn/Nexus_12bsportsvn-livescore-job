@@ -1,19 +1,21 @@
-﻿namespace SabaNews.Livescore.SyncData.Services
+﻿using SabaNews.Livescore.Core.Models;
+
+namespace SabaNews.Livescore.SyncData.Services
 {
+    using Core.Enum;
+    using Criteria.Matches;
+    using Helpers;
+    using Newtonsoft.Json;
+    using SabaNews.Livescore.Core.Extensions;
+
+    using SabaNews.Livescore.Core.Services;
+    using SabaNews.Livescore.Models.Synchronous;
+    using SabaNews.Livescore.Provider.API.Models.Matches;
+    using SabaNews.Livescore.Provider.API.Services;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using Newtonsoft.Json;
-    using SabaNews.Core.Helper;
-    using SabaNews.Core.Models;
-    using SabaNews.Core.Services;
-    using SabaNews.Livescore.Core.Enum;
-    using SabaNews.Livescore.Models.Synchronous;
-    using SabaNews.Livescore.Provider.API.Models.Matches;
-    using SabaNews.Livescore.Provider.API.Services;
-    using SabaNews.Livescore.SyncData.Criteria.Matches;
-    using SabaNews.Livescore.SyncData.Helpers;
 
     public class SyncMatchService : ISyncMatchService
     {
@@ -21,7 +23,7 @@
         private readonly IFetchMatchService fetchMatchService;
         private readonly AppSettings appSettings;
 
-        public SyncMatchService(IBaseService baseService, 
+        public SyncMatchService(IBaseService baseService,
             IFetchMatchService fetchMatchService,
             AppSettings appSettings)
         {
@@ -146,11 +148,10 @@
             var lastUpdatedTime = await baseService.GetDataEntityAsync<DateTime?>(new GetIncidentLastUpdatedTimeCriteria());
             var now = DateTimeUtilize.UtcNow().DateTime;
             lastUpdatedTime ??= now.AddMinutes(-SyncMinutes);
-            
+
             var updatedMatches = await fetchMatchService.FetchMatchIncidentUpdateTimeAsync((int)SportType.Soccer, lastUpdatedTime);
             await SyncIncidents(updatedMatches.ToArray());
             await baseService.ExecuteNonQueryAsync(new UpdateIncidentUpdatedTimeCommand { UpdatedTime = now });
-
         }
 
         public async Task<DateTime> GetMatchLastUpdatedTimeInDateRangeAsync(DateTime? startTime, DateTime? endTime, bool isExcludeLiveMatch = false)
@@ -201,16 +202,16 @@
         public async Task SyncIncidents(long[] matchIds)
         {
             const int limitFetchIncidents = 20;
-            var batchMatchIds  = new List<long>();
+            var batchMatchIds = new List<long>();
             var count = 0;
             foreach (var matchId in matchIds)
             {
                 count++;
                 batchMatchIds.Add(matchId);
-                if(batchMatchIds.Count == limitFetchIncidents || count == matchIds.Length)
+                if (batchMatchIds.Count == limitFetchIncidents || count == matchIds.Length)
                 {
                     var dictionary = await fetchMatchService.FetchMultipleMatchIncidentsAsync((int)SportType.Soccer, batchMatchIds.ToArray());
-                    if(dictionary != null)
+                    if (dictionary != null)
                     {
                         await SyncMatchIncident(dictionary);
                     }
@@ -219,18 +220,17 @@
             }
         }
 
-        private async Task SyncMatchIncident(IDictionary<string,  MatchIncidentResponse> dictionary)
+        private async Task SyncMatchIncident(IDictionary<string, MatchIncidentResponse> dictionary)
         {
-            foreach (KeyValuePair<string,  MatchIncidentResponse> entry in dictionary)
+            foreach (KeyValuePair<string, MatchIncidentResponse> entry in dictionary)
             {
                 _ = long.TryParse(entry.Key, out long matchId);
                 var value = entry.Value;
-                if(value is not null && value.Incidents.Count > 0 )
+                if (value is not null && value.Incidents.Count > 0)
                 {
                     await SyncMatchIncidentAsync(matchId, value.Incidents);
                 }
             }
         }
-
     }
 }

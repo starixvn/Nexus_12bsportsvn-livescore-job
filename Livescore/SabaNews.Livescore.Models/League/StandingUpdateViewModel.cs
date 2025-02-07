@@ -1,6 +1,6 @@
 ﻿namespace SabaNews.Livescore.Models.League
 {
-    using SabaNews.Livescore.Models.Match;
+    using Match;
     using System.Collections.Generic;
 
     public class StandingUpdateViewModel

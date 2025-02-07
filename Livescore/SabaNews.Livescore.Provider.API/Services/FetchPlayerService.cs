@@ -2,8 +2,8 @@
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using SabaNews.Livescore.Provider.API.Constants;
-    using SabaNews.Livescore.Provider.API.Models.Player;
+    using Constants;
+    using Models.Player;
 
     public class FetchPlayerService : IFetchPlayerService
     {

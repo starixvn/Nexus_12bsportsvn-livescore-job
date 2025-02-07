@@ -18,7 +18,6 @@ COPY ["Livescore/SabaNews.Livescore.ScheduledTasks/SabaNews.Livescore.ScheduledT
 COPY ["Livescore/SabaNews.Livescore.Provider.API/SabaNews.Livescore.Provider.API.csproj", "Livescore/SabaNews.Livescore.Provider.API/"]
 COPY ["Livescore/SabaNews.Livescore.Models/SabaNews.Livescore.Models.csproj", "Livescore/SabaNews.Livescore.Models/"]
 COPY ["Livescore/SabaNews.Livescore.Core/SabaNews.Livescore.Core.csproj", "Livescore/SabaNews.Livescore.Core/"]
-COPY ["SabaNews.Core/SabaNews.Core.csproj", "SabaNews.Core/"]
 COPY ["Livescore/SabaNews.Livescore.Services/SabaNews.Livescore.Services.csproj", "Livescore/SabaNews.Livescore.Services/"]
 COPY ["Livescore/SabaNews.Livescore.Repositories/SabaNews.Livescore.Repositories.csproj", "Livescore/SabaNews.Livescore.Repositories/"]
 COPY ["Livescore/SabaNews.Livescore.SyncData/SabaNews.Livescore.SyncData.csproj", "Livescore/SabaNews.Livescore.SyncData/"]

@@ -1,11 +1,11 @@
 ﻿namespace SabaNews.Livescore.SyncData.Services
 {
+    using Criteria.Country;
+    using Interfaces;
     using Newtonsoft.Json;
-    using SabaNews.Core.Services;
+    using SabaNews.Livescore.Core.Services;
     using SabaNews.Livescore.Provider.API.Models.Country;
     using SabaNews.Livescore.Provider.API.Services;
-    using SabaNews.Livescore.SyncData.Criteria.Country;
-    using SabaNews.Livescore.SyncData.Services.Interfaces;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;

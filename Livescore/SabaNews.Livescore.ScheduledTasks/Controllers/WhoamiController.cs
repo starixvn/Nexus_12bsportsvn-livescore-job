@@ -1,10 +1,11 @@
-﻿namespace SabaNews.Livescore.ScheduledTasks.Controllers
+﻿using SabaNews.Livescore.Core.Extensions;
+
+namespace SabaNews.Livescore.ScheduledTasks.Controllers
 {
-    using System;
-    using System.Text;
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
-    using SabaNews.Core.Helper;
+    using System;
+    using System.Text;
 
     public class WhoamiController : Controller
     {

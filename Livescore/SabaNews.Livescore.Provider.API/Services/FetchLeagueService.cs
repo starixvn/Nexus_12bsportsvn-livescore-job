@@ -1,9 +1,9 @@
 ﻿namespace SabaNews.Livescore.Provider.API.Services
 {
+    using Constants;
+    using Models.League;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using SabaNews.Livescore.Provider.API.Constants;
-    using SabaNews.Livescore.Provider.API.Models.League;
 
     public class FetchLeagueService : IFetchLeagueService
     {
@@ -27,7 +27,6 @@
             };
             return await httpClient.ExecutePostAsync<List<LeagueListResponse>>(ApiPath.GetLeagueListApiPath, param);
         }
-
 
         private static class ApiPath
         {

@@ -3,8 +3,8 @@
     using AutoFixture;
     using Fanex.Data.Repository;
     using NSubstitute;
-    using SabaNews.Core.Models;
-    using SabaNews.Core.Services;
+    using SabaNews.Livescore.Core.Models;
+    using SabaNews.Livescore.Core.Services;
     using SabaNews.Livescore.Provider.API.Models.Country;
     using SabaNews.Livescore.Provider.API.Services;
     using SabaNews.Livescore.SyncData.Services;

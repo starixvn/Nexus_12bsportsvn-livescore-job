@@ -1,18 +1,18 @@
 ﻿namespace SabaNews.Livescore.SyncData.Tests.Services
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
     using AutoFixture;
     using Fanex.Data.Repository;
     using NSubstitute;
-    using SabaNews.Core.Models;
-    using SabaNews.Core.Services;
+    using SabaNews.Livescore.Core.Models;
+    using SabaNews.Livescore.Core.Services;
     using SabaNews.Livescore.Provider.API.Models.Season;
     using SabaNews.Livescore.Provider.API.Services;
     using SabaNews.Livescore.SyncData.Criteria.Season;
     using SabaNews.Livescore.SyncData.Services;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
     using Xunit;
 
     public class SyncSeasonServiceTests

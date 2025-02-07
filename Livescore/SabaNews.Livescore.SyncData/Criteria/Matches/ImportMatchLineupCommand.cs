@@ -1,7 +1,7 @@
-﻿namespace SabaNews.Livescore.SyncData.Criteria.Matches
-{
-    using SabaNews.Core.Models;
+﻿using SabaNews.Livescore.Core.Models;
 
+namespace SabaNews.Livescore.SyncData.Criteria.Matches
+{
     public class ImportMatchLineupCommand : BaseNonQueryCommand
     {
         public string MatchLineupJson { get; set; }

@@ -1,12 +1,12 @@
 ﻿namespace SabaNews.Livescore.SyncData.Helpers
 {
+    using Models.Matches;
+    using Models.Team;
+    using SabaNews.Livescore.Provider.API.Models.Matches;
+    using SabaNews.Livescore.Provider.API.Models.Team;
     using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
-    using SabaNews.Livescore.Provider.API.Models.Matches;
-    using SabaNews.Livescore.Provider.API.Models.Team;
-    using SabaNews.Livescore.SyncData.Models.Matches;
-    using SabaNews.Livescore.SyncData.Models.Team;
 
     internal static class DataHelpers
     {

@@ -1,6 +1,6 @@
 ﻿namespace SabaNews.Livescore.Services.Criteria.League
 {
-    using SabaNews.Core.Models;
+    using SabaNews.Livescore.Core.Models;
 
     public class UpdateStandingCommand : BaseNonQueryCommand
     {
@@ -16,7 +16,9 @@
         public short? Goals { get; set; }
         public short? GoalsAgainst { get; set; }
         public short? GoalDiff { get; set; }
+
         public override string GetSettingKey() => "Livescore_Standing_Update";
+
         public override bool IsValid() => SeasonId > 0;
     }
 }

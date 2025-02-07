@@ -1,6 +1,7 @@
-﻿namespace SabaNews.Livescore.SyncData.Criteria.Matches
+﻿using SabaNews.Livescore.Core.Models;
+
+namespace SabaNews.Livescore.SyncData.Criteria.Matches
 {
-    using SabaNews.Core.Models;
     using System;
 
     public class UpdateIncidentUpdatedTimeCommand : BaseNonQueryCommand

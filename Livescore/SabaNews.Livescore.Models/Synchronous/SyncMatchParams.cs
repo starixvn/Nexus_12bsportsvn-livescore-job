@@ -1,7 +1,7 @@
 ﻿namespace SabaNews.Livescore.Models.Synchronous
 {
+    using Core.Enum;
     using System;
-    using SabaNews.Livescore.Core.Enum;
 
     public class SyncMatchParams
     {

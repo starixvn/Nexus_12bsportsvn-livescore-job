@@ -4,8 +4,8 @@
     using System.Threading.Tasks;
     using AutoFixture;
     using NSubstitute;
-    using SabaNews.Livescore.Provider.API.Models.Team;
-    using SabaNews.Livescore.Provider.API.Services;
+    using Models.Team;
+    using Services;
     using Xunit;
 
     public class FetchTeamServiceTests

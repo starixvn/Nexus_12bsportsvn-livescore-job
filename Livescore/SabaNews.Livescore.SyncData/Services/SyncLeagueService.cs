@@ -1,16 +1,16 @@
 ﻿namespace SabaNews.Livescore.SyncData.Services
 {
+    using Core.Enum;
+    using Criteria.League;
+    using Newtonsoft.Json;
+    using SabaNews.Livescore.Core.Models;
+    using SabaNews.Livescore.Core.Services;
+    using SabaNews.Livescore.Provider.API.Models.League;
+    using SabaNews.Livescore.Provider.API.Services;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using Newtonsoft.Json;
-    using SabaNews.Core.Models;
-    using SabaNews.Core.Services;
-    using SabaNews.Livescore.Core.Enum;
-    using SabaNews.Livescore.Provider.API.Models.League;
-    using SabaNews.Livescore.Provider.API.Services;
-    using SabaNews.Livescore.SyncData.Criteria.League;
 
     public class SyncLeagueService : ISyncLeagueService
     {
@@ -81,7 +81,7 @@
                 RowLimit = appSettings.BatchSizeSyncLivescoreData
             };
             List<LeagueListResponse> leagues = await fetchLeagueService.FetchLeagueListAsync(param);
-            if(leagues.Any())
+            if (leagues.Any())
             {
                 var leagueSeasonData = leagues.Where(l => l.CurSeasonId != null && l.CurSeasonId != 0).Select(i => new { i.LeagueId, i.CurSeasonId, i.Seasons }).ToArray();
                 var json = JsonConvert.SerializeObject(leagueSeasonData);

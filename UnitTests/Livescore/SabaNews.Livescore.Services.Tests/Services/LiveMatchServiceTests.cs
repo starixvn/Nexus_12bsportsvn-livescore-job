@@ -1,13 +1,13 @@
 ﻿namespace SabaNews.Livescore.Services.Tests.Services
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
     using AutoFixture;
     using Fanex.Data.Repository;
     using NSubstitute;
-    using SabaNews.Core.Services;
+    using SabaNews.Livescore.Core.Services;
     using SabaNews.Livescore.Services.Criteria.LiveMatch;
+    using System;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
     using Xunit;
 
     public class LiveMatchServiceTests

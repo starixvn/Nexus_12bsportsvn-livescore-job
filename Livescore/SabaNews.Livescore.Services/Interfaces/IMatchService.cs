@@ -1,12 +1,13 @@
-﻿namespace SabaNews.Livescore.Services
+﻿using SabaNews.Livescore.Core.Models;
+
+namespace SabaNews.Livescore.Services
 {
+    using Criteria.Match;
+    using Models.League;
+    using Models.Lineup;
+    using Models.Match;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using SabaNews.Core.Models;
-    using SabaNews.Livescore.Models.League;
-    using SabaNews.Livescore.Models.Lineup;
-    using SabaNews.Livescore.Models.Match;
-    using SabaNews.Livescore.Services.Criteria.Match;
 
     public interface IMatchService
     {
@@ -43,6 +44,5 @@
         Task<IList<Match>> GetTodayMatchesAsync();
 
         Task<IList<MatchSitemap>> GetMatchSitemapAsync();
-
     }
 }

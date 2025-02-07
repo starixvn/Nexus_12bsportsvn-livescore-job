@@ -1,9 +1,9 @@
 ﻿namespace SabaNews.Livescore.Provider.API.Services
 {
+    using Constants;
+    using Models.Season;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using SabaNews.Livescore.Provider.API.Constants;
-    using SabaNews.Livescore.Provider.API.Models.Season;
 
     public class FetchSeasonService : IFetchSeasonService
     {

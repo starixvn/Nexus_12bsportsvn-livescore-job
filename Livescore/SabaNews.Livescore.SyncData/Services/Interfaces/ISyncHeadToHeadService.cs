@@ -1,10 +1,10 @@
 ﻿namespace SabaNews.Livescore.SyncData.Services.Interfaces
 {
+    using Models.HeadToHead;
+    using SabaNews.Livescore.Provider.API.Models.Team;
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using SabaNews.Livescore.Provider.API.Models.Team;
-    using SabaNews.Livescore.SyncData.Models.HeadToHead;
 
     public interface ISyncHeadToHeadService
     {

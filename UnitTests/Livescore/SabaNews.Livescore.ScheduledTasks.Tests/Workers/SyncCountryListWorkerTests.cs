@@ -1,9 +1,9 @@
 ﻿namespace SabaNews.Livescore.ScheduledTasks.Tests.Workers
 {
     using AutoFixture;
+    using Models;
     using NSubstitute;
-    using SabaNews.Core.Services;
-    using SabaNews.Livescore.ScheduledTasks.Models;
+    using SabaNews.Livescore.Core.Services;
     using SabaNews.Livescore.ScheduledTasks.Workers;
     using SabaNews.Livescore.SyncData.Services.Interfaces;
     using System.Collections.Generic;
@@ -37,6 +37,4 @@
             await syncCountryService.Received().SyncCountryListAsync();
         }
     }
-
-   
 }

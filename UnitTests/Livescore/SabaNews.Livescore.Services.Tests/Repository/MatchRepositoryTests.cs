@@ -1,17 +1,17 @@
 ﻿namespace SabaNews.Livescore.Services.Tests.Repository
 {
+    using AutoFixture;
+    using Fanex.Data;
+    using Fanex.Data.Repository;
+    using Models.League;
+    using Models.Match;
+    using Models.Team;
+    using NSubstitute;
+    using Repositories;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using AutoFixture;
-    using Fanex.Data;
-    using Fanex.Data.Repository;
-    using NSubstitute;
-    using SabaNews.Livescore.Models.League;
-    using SabaNews.Livescore.Models.Match;
-    using SabaNews.Livescore.Models.Team;
-    using SabaNews.Livescore.Repositories;
     using Xunit;
 
     public class MatchRepositoryTests
@@ -24,9 +24,10 @@
             DbSettingProviderManager
             .StartTestingSession()
             .Run();
-            fixture = new Fixture();
-            objectDb = Substitute.For<IObjectDb>();
-            ObjectDbFactory.Mock((key, time) => objectDb);
+
+            var mockFactory = Substitute.For<CreateObjectDbFunc>();
+            mockFactory(Arg.Any<string>(), Arg.Any<int>(), Arg.Any<string>()).Returns(objectDb);
+            ObjectDbFactory.Mock(mockFactory);
         }
 
         [Fact]

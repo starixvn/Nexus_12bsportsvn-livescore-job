@@ -1,6 +1,6 @@
 ﻿namespace SabaNews.Livescore.Services.Criteria.League
 {
-    using SabaNews.Core.Models;
+    using SabaNews.Livescore.Core.Models;
     using System;
 
     public class InsertLeagueExtraCriteria : BaseNonQueryCommand
@@ -9,6 +9,7 @@
         public int Priority { get; set; }
         public bool IsMajor { get; set; }
         public DateTime CreatedDate { get; set; }
+
         public override string GetSettingKey() => "Livescore_League_Extra_Insert";
 
         public override bool IsValid() => true;

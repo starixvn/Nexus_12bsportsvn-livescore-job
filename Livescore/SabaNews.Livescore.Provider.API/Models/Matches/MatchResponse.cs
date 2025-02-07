@@ -1,7 +1,7 @@
 ﻿namespace SabaNews.Livescore.Provider.API.Models.Matches
 {
+    using Core.Enum;
     using System;
-    using SabaNews.Livescore.Core.Enum;
 
     public class MatchResponse
     {

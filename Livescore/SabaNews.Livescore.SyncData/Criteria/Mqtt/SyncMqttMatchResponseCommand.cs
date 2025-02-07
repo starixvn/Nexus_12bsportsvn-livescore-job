@@ -1,7 +1,7 @@
-﻿namespace SabaNews.Livescore.SyncData.Criteria.Mqtt
-{
-    using SabaNews.Core.Models;
+﻿using SabaNews.Livescore.Core.Models;
 
+namespace SabaNews.Livescore.SyncData.Criteria.Mqtt
+{
     public class SyncMqttMatchResponseCommand : BaseNonQueryCommand
     {
         public string MatchJson { get; set; }

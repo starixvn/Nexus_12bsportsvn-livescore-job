@@ -1,6 +1,6 @@
 ﻿namespace SabaNews.Livescore.Provider.API.Criteria
 {
-    using SabaNews.Core.Models;
+    using SabaNews.Livescore.Core.Models;
 
     public class InsertSendHttpRequestLogCommand : BaseNonQueryCommand
     {

@@ -1,19 +1,19 @@
 ﻿namespace SabaNews.Livescore.Provider.API
 {
+    using Criteria;
+    using Models;
+    using Newtonsoft.Json;
+    using NSubstitute;
+    using NSubstitute.ExceptionExtensions;
+    using SabaNews.Livescore.Core.Constants;
+    using SabaNews.Livescore.Core.Services;
+    using Services;
     using System;
     using System.Collections.Generic;
     using System.Net;
     using System.Net.Http;
     using System.Threading.Tasks;
-    using Newtonsoft.Json;
-    using NSubstitute;
-    using NSubstitute.ExceptionExtensions;
-    using SabaNews.Core.Services;
-    using SabaNews.Livescore.Core.Constants;
-    using SabaNews.Livescore.Provider.API.Criteria;
-    using SabaNews.Livescore.Provider.API.Models;
-    using SabaNews.Livescore.Provider.API.Services;
-    using SabaNews.Livescore.Provider.API.Tests;
+    using Tests;
     using Xunit;
 
     public class HttpClientServiceTests

@@ -1,9 +1,9 @@
 ﻿namespace SabaNews.Livescore.Provider.API.Tests
 {
     using AutoFixture;
+    using Models.Country;
     using NSubstitute;
-    using SabaNews.Livescore.Provider.API.Models.Country;
-    using SabaNews.Livescore.Provider.API.Services;
+    using Services;
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using Xunit;

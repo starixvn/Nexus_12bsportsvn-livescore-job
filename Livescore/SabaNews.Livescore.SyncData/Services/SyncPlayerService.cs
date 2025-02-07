@@ -1,16 +1,18 @@
-﻿namespace SabaNews.Livescore.SyncData.Services
+﻿using SabaNews.Livescore.Core.Models;
+
+namespace SabaNews.Livescore.SyncData.Services
 {
+    using Core.Enum;
+    using Criteria.Player;
+    using Newtonsoft.Json;
+
+    using SabaNews.Livescore.Core.Services;
+    using SabaNews.Livescore.Provider.API.Models.Player;
+    using SabaNews.Livescore.Provider.API.Services;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using Newtonsoft.Json;
-    using SabaNews.Core.Models;
-    using SabaNews.Core.Services;
-    using SabaNews.Livescore.Core.Enum;
-    using SabaNews.Livescore.Provider.API.Models.Player;
-    using SabaNews.Livescore.Provider.API.Services;
-    using SabaNews.Livescore.SyncData.Criteria.Player;
 
     public class SyncPlayerService : ISyncPlayerService
     {
@@ -46,7 +48,7 @@
                     _ = long.TryParse(entry.Key, out long teamId);
                     foreach (var player in entry.Value)
                     {
-                        if(teamId != 0 || !players.Exists(p => p.PlayerId == player.PlayerId && p.TeamId == teamId))
+                        if (teamId != 0 || !players.Exists(p => p.PlayerId == player.PlayerId && p.TeamId == teamId))
                         {
                             player.TeamId = teamId;
                             players.Add(player);

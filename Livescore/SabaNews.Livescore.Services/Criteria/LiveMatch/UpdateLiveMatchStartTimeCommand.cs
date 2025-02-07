@@ -1,7 +1,7 @@
 ﻿namespace SabaNews.Livescore.Services.Criteria.LiveMatch
 {
+    using SabaNews.Livescore.Core.Models;
     using System;
-    using SabaNews.Core.Models;
 
     public class UpdateLiveMatchStartTimeCommand : BaseNonQueryCommand
     {

@@ -1,7 +1,7 @@
 ﻿namespace SabaNews.Livescore.Models.Match
 {
+    using League;
     using System;
-    using SabaNews.Livescore.Models.League;
 
     public class GetMatchBySeasonParams
     {

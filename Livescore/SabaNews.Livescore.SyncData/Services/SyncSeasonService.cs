@@ -1,18 +1,20 @@
-﻿namespace SabaNews.Livescore.SyncData.Services
+﻿using SabaNews.Livescore.Core.Models;
+
+namespace SabaNews.Livescore.SyncData.Services
 {
+    using Core.Enum;
+    using Criteria.Season;
+    using Models.Season;
+    using Newtonsoft.Json;
+    using SabaNews.Livescore.Core.Extensions;
+
+    using SabaNews.Livescore.Core.Services;
+    using SabaNews.Livescore.Provider.API.Models.Season;
+    using SabaNews.Livescore.Provider.API.Services;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using Newtonsoft.Json;
-    using SabaNews.Core.Helper;
-    using SabaNews.Core.Models;
-    using SabaNews.Core.Services;
-    using SabaNews.Livescore.Core.Enum;
-    using SabaNews.Livescore.Provider.API.Models.Season;
-    using SabaNews.Livescore.Provider.API.Services;
-    using SabaNews.Livescore.SyncData.Criteria.Season;
-    using SabaNews.Livescore.SyncData.Models.Season;
 
     public class SyncSeasonService : ISyncSeasonService
     {
@@ -97,7 +99,7 @@
             }
 
             var today = DateTimeUtilize.Now();
-            
+
             const byte TotalDaysOfWeek = 7;
             var isLastUpdatedTime = true;
             //only get update standing data into 7 days per call api

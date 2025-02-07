@@ -1,16 +1,18 @@
-﻿namespace SabaNews.Livescore.SyncData.Services
+﻿using SabaNews.Livescore.Core.Models;
+
+namespace SabaNews.Livescore.SyncData.Services
 {
+    using Core.Enum;
+    using Criteria.Team;
+    using Newtonsoft.Json;
+
+    using SabaNews.Livescore.Core.Services;
+    using SabaNews.Livescore.Provider.API.Models.Team;
+    using SabaNews.Livescore.Provider.API.Services;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using Newtonsoft.Json;
-    using SabaNews.Core.Models;
-    using SabaNews.Core.Services;
-    using SabaNews.Livescore.Core.Enum;
-    using SabaNews.Livescore.Provider.API.Models.Team;
-    using SabaNews.Livescore.Provider.API.Services;
-    using SabaNews.Livescore.SyncData.Criteria.Team;
 
     public class SyncTeamService : ISyncTeamService
     {

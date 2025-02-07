@@ -1,9 +1,9 @@
-﻿
-namespace SabaNews.Livescore.Models.Match
+﻿namespace SabaNews.Livescore.Models.Match
 {
     using System;
-    using SabaNews.Livescore.Models.League;
-    using SabaNews.Livescore.Models.Team;
+    using League;
+    using Team;
+
     public class MatchUpdate
     {
         public long MatchId { get; set; }

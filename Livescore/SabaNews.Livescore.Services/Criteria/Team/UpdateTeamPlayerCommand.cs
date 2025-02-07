@@ -1,7 +1,7 @@
 namespace SabaNews.Livescore.Services.Criteria.Team
 {
+    using SabaNews.Livescore.Core.Models;
     using System;
-    using SabaNews.Core.Models;
 
     public class UpdateTeamPlayerCommand : BaseNonQueryCommand
     {

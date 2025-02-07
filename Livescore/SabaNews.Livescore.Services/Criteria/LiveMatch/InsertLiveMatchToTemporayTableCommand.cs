@@ -1,6 +1,6 @@
 ﻿namespace SabaNews.Livescore.Services.Criteria.LiveMatch
 {
-    using SabaNews.Core.Models;
+    using SabaNews.Livescore.Core.Models;
 
     public class InsertLiveMatchToTemporayTableCommand : BaseNonQueryCommand
     {

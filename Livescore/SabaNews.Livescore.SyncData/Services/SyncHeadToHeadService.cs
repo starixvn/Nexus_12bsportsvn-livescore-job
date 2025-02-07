@@ -1,15 +1,15 @@
 ﻿namespace SabaNews.Livescore.SyncData.Services
 {
+    using Criteria.HeadToHead;
+    using Helpers;
+    using Interfaces;
+    using Models.HeadToHead;
+    using Newtonsoft.Json;
+    using SabaNews.Livescore.Core.Services;
+    using SabaNews.Livescore.Provider.API.Models.Team;
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Newtonsoft.Json;
-    using SabaNews.Core.Services;
-    using SabaNews.Livescore.Provider.API.Models.Team;
-    using SabaNews.Livescore.SyncData.Criteria.HeadToHead;
-    using SabaNews.Livescore.SyncData.Helpers;
-    using SabaNews.Livescore.SyncData.Models.HeadToHead;
-    using SabaNews.Livescore.SyncData.Services.Interfaces;
 
     public class SyncHeadToHeadService : ISyncHeadToHeadService
     {

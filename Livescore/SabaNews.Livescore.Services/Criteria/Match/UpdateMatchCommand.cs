@@ -1,6 +1,6 @@
 ﻿namespace SabaNews.Livescore.Services.Criteria.Match
 {
-    using SabaNews.Core.Models;
+    using SabaNews.Livescore.Core.Models;
     using System;
 
     public class UpdateMatchCommand : BaseNonQueryCommand

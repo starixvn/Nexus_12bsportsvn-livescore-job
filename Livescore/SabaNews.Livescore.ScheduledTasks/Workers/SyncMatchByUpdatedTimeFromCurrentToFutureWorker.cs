@@ -1,15 +1,16 @@
-﻿namespace SabaNews.Livescore.ScheduledTasks.Workers
+﻿using SabaNews.Livescore.Core.Models;
+
+namespace SabaNews.Livescore.ScheduledTasks.Workers
 {
-    using System;
+    using Constants;
+    using Helpers;
+    using Models;
+    using SabaNews.Livescore.Core.Extensions;
+
+    using SabaNews.Livescore.Core.Services;
+    using SabaNews.Livescore.SyncData.Services;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using SabaNews.Core.Helper;
-    using SabaNews.Core.Models;
-    using SabaNews.Core.Services;
-    using SabaNews.Livescore.ScheduledTasks.Constants;
-    using SabaNews.Livescore.ScheduledTasks.Helpers;
-    using SabaNews.Livescore.ScheduledTasks.Models;
-    using SabaNews.Livescore.SyncData.Services;
 
     public class SyncMatchByUpdatedTimeFromCurrentToFutureWorker : WorkerBase
     {

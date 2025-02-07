@@ -1,18 +1,19 @@
-﻿namespace SabaNews.Livescore.ScheduledTasks.Workers
+﻿using SabaNews.Livescore.Core.Models;
+
+namespace SabaNews.Livescore.ScheduledTasks.Workers
 {
-    using System;
+    using Constants;
+    using Helpers;
+    using Models;
+    using SabaNews.Livescore.Core.Extensions;
+
+    using SabaNews.Livescore.Core.Services;
+    using SabaNews.Livescore.Provider.API.Services;
+    using SabaNews.Livescore.SyncData.Models.HeadToHead;
+    using SabaNews.Livescore.SyncData.Services.Interfaces;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using SabaNews.Core.Helper;
-    using SabaNews.Core.Models;
-    using SabaNews.Core.Services;
-    using SabaNews.Livescore.Provider.API.Services;
-    using SabaNews.Livescore.ScheduledTasks.Constants;
-    using SabaNews.Livescore.ScheduledTasks.Helpers;
-    using SabaNews.Livescore.ScheduledTasks.Models;
-    using SabaNews.Livescore.SyncData.Models.HeadToHead;
-    using SabaNews.Livescore.SyncData.Services.Interfaces;
 
     public class SyncHeadToHeadFromCurrentDateToFutureWorker : WorkerBase
     {

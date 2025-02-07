@@ -1,19 +1,20 @@
-﻿namespace SabaNews.Livescore.Services.Tests.Services
+﻿using SabaNews.Livescore.Core.Models;
+
+namespace SabaNews.Livescore.Services.Tests.Services
 {
+    using AutoFixture;
+    using Fanex.Data.Repository;
+    using Models.League;
+    using Models.Lineup;
+    using Models.Match;
+    using Newtonsoft.Json;
+    using NSubstitute;
+    using Repositories;
+    using SabaNews.Livescore.Core.Services;
+    using SabaNews.Livescore.Services.Criteria.Match;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using AutoFixture;
-    using Fanex.Data.Repository;
-    using Newtonsoft.Json;
-    using NSubstitute;
-    using SabaNews.Core.Models;
-    using SabaNews.Core.Services;
-    using SabaNews.Livescore.Models.League;
-    using SabaNews.Livescore.Models.Lineup;
-    using SabaNews.Livescore.Models.Match;
-    using SabaNews.Livescore.Repositories;
-    using SabaNews.Livescore.Services.Criteria.Match;
     using Xunit;
 
     public class MatchServiceTests

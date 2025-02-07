@@ -1,17 +1,18 @@
 ﻿namespace SabaNews.Livescore.Provider.API.Services
 {
+    using Criteria;
+    using Fanex.Caching;
+    using Models;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
+
+    using SabaNews.Livescore.Core.Constants;
+    using SabaNews.Livescore.Core.Services;
     using System;
     using System.Collections.Generic;
     using System.Net.Http;
     using System.Text;
     using System.Threading.Tasks;
-    using Fanex.Caching;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    using SabaNews.Core.Services;
-    using SabaNews.Livescore.Core.Constants;
-    using SabaNews.Livescore.Provider.API.Criteria;
-    using SabaNews.Livescore.Provider.API.Models;
 
     public class HttpClientService : IHttpClientService
     {

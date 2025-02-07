@@ -1,4 +1,4 @@
-﻿using SabaNews.Core.Models;
+﻿using SabaNews.Livescore.Core.Models;
 
 namespace SabaNews.Livescore.SyncData.Criteria.Country
 {

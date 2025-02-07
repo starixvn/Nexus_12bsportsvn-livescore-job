@@ -5,8 +5,8 @@
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using SabaNews.Livescore.Core.Constants;
-    using SabaNews.Livescore.Provider.API.Models;
-    using SabaNews.Livescore.Provider.API.Services;
+    using Models;
+    using Services;
 
     public static class ProviderApiHelpers
     {

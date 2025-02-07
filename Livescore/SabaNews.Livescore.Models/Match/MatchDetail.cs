@@ -1,7 +1,7 @@
 ﻿namespace SabaNews.Livescore.Models.Match
 {
+    using Lineup;
     using System.Collections.Generic;
-    using SabaNews.Livescore.Models.Lineup;
 
     public class MatchDetail
     {

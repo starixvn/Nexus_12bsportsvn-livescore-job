@@ -1,9 +1,9 @@
 ﻿namespace SabaNews.Livescore.ScheduledTasks.Workers
 {
-    using SabaNews.Core.Services;
-    using SabaNews.Livescore.ScheduledTasks.Constants;
-    using SabaNews.Livescore.ScheduledTasks.Helpers;
-    using SabaNews.Livescore.ScheduledTasks.Models;
+    using Constants;
+    using Helpers;
+    using Models;
+    using SabaNews.Livescore.Core.Services;
     using SabaNews.Livescore.SyncData.Services.Interfaces;
     using System.Collections.Generic;
     using System.Threading.Tasks;

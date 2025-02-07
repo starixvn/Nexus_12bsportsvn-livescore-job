@@ -5,8 +5,8 @@
     using AutoFixture;
     using Newtonsoft.Json;
     using NSubstitute;
-    using SabaNews.Livescore.Provider.API.Models.Player;
-    using SabaNews.Livescore.Provider.API.Services;
+    using Models.Player;
+    using Services;
     using Xunit;
 
     public class FetchPlayerServiceTests

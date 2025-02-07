@@ -1,13 +1,13 @@
 ﻿namespace SabaNews.Livescore.Repositories
 {
+    using Fanex.Data;
+    using Fanex.Data.Repository;
+    using Models.League;
+    using Models.Match;
+    using Models.Team;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using Fanex.Data;
-    using Fanex.Data.Repository;
-    using SabaNews.Livescore.Models.League;
-    using SabaNews.Livescore.Models.Match;
-    using SabaNews.Livescore.Models.Team;
 
     public class MatchRepository : IMatchRepository
     {
@@ -171,7 +171,7 @@
         {
             using (IObjectDb db = ObjectDbFactory.CreateInstance(criteria.GetSettingKey()))
             {
-                var matches = await db.QueryAsync<Match, Team, Team, SeasonStage, Match >(
+                var matches = await db.QueryAsync<Match, Team, Team, SeasonStage, Match>(
                         (match, home, away, stage) =>
                         {
                             match.HomeTeam = home;
@@ -190,7 +190,7 @@
         {
             using (IObjectDb db = ObjectDbFactory.CreateInstance(criteria.GetSettingKey()))
             {
-                var matches = await db.QueryAsync<Match, League, Team, Team, Match >(
+                var matches = await db.QueryAsync<Match, League, Team, Team, Match>(
                         (match, league, home, away) =>
                         {
                             match.League = league;

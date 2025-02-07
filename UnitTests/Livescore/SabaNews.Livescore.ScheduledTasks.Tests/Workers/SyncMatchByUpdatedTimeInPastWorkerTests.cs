@@ -1,15 +1,15 @@
 ﻿namespace SabaNews.Livescore.ScheduledTasks.Tests.Workers
 {
+    using AutoFixture;
+    using Models;
+    using NSubstitute;
+    using SabaNews.Livescore.Core.Models;
+    using SabaNews.Livescore.Core.Services;
+    using SabaNews.Livescore.ScheduledTasks.Workers;
+    using SabaNews.Livescore.SyncData.Services;
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using AutoFixture;
-    using NSubstitute;
-    using SabaNews.Core.Models;
-    using SabaNews.Core.Services;
-    using SabaNews.Livescore.ScheduledTasks.Models;
-    using SabaNews.Livescore.ScheduledTasks.Workers;
-    using SabaNews.Livescore.SyncData.Services;
     using Xunit;
 
     public class SyncMatchByUpdatedTimeInPastWorkerTests

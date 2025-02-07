@@ -1,15 +1,14 @@
-﻿namespace SabaNews.Livescore.Services.Tests.Services
+﻿using SabaNews.Livescore.Core.Models;
+
+namespace SabaNews.Livescore.Services.Tests.Services
 {
     using AutoFixture;
+    using Models.League;
+    using Models.Match;
+    using Models.Team;
     using NSubstitute;
-    using SabaNews.Core.Constants;
-    using SabaNews.Core.Models;
-    using SabaNews.Core.Services;
-    using SabaNews.Livescore.Models.League;
-    using SabaNews.Livescore.Models.Match;
-    using SabaNews.Livescore.Models.Team;
+    using SabaNews.Livescore.Core.Services;
     using SabaNews.Livescore.Services.Criteria.League;
-    using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using Xunit;
@@ -17,7 +16,6 @@
     public class LeagueServiceTests
     {
         private IBaseService baseService;
-        
 
         [Fact]
         public async Task GetMajorLeagueAsync_WhenCalled_ReturnExpectedResult()
@@ -328,7 +326,7 @@
             var rowNum = fixture.Create<int>();
             var leagueId = fixture.Create<long>();
             var seasonId = fixture.Create<long>();
-            
+
             baseService.GetDataAsync<TopScorers>(Arg.Any<GetTopScorersByRowNumCriteria>()).Returns(topScorers);
             //Act
             var actual = await service.GetTopScorersByRowNumAsync(rowNum, leagueId, seasonId);
@@ -371,7 +369,7 @@
             //Arrange
             var service = GetService();
             var fixture = new Fixture();
-            var criteria = fixture.Create<GetLeagueAndSeasonStandingsCriteria >();
+            var criteria = fixture.Create<GetLeagueAndSeasonStandingsCriteria>();
             (var league, var standing) = fixture.Create<(IEnumerable<League>, IEnumerable<SeasonStandings>)>();
             baseService.FetchMultipleAsync<League, SeasonStandings>(Arg.Do<GetLeagueAndSeasonStandingsCriteria>(x => x = criteria)).Returns((league, standing));
             //Act
@@ -453,7 +451,7 @@
             var updatePositionCmd = fixture.Create<UpdateStandingPositionCommand>();
             var league = fixture.Create<League>();
             var leagues = fixture.Create<IList<League>>();
-            var expected = new CommandResult { Message = "msg", Code = Constants.SuccessCode };
+            var expected = new CommandResult { Message = "msg", Code = 0 };
             var expectedUpdatePosition = fixture.Create<CommandResult>();
             baseService.ExecuteNonQueryAsync(Arg.Do<UpdateStandingCommand>(x => updateCmd = x)).Returns(expected);
             baseService.ExecuteNonQueryAsync(Arg.Do<UpdateStandingPositionCommand>(x => updatePositionCmd = x)).Returns(expectedUpdatePosition);
@@ -480,9 +478,8 @@
             };
             var updateCmd = fixture.Create<UpdateStandingCommand>();
             var updatePositionCmd = fixture.Create<UpdateStandingPositionCommand>();
-            var league = fixture.Create<League>();
-            var leagues = fixture.Create<IList<League>>();
-            var expected = new CommandResult { Message = "msg", Code = Constants.SuccessCode };
+
+            var expected = new CommandResult { Message = "msg", Code = 0 };
             var expectedUpdatePosition = fixture.Create<CommandResult>();
             baseService.ExecuteNonQueryAsync(Arg.Do<UpdateStandingCommand>(x => updateCmd = x)).Returns(expected);
             baseService.ExecuteNonQueryAsync(Arg.Do<UpdateStandingPositionCommand>(x => updatePositionCmd = x)).Returns(expectedUpdatePosition);
@@ -502,9 +499,9 @@
             //Act
             var actual = LeagueService.GetLeaguePriority(league);
             int priority = 0;
-            foreach(var item in league)
+            foreach (var item in league)
             {
-                if(item.Priority > priority)
+                if (item.Priority > priority)
                 {
                     priority = item.Priority;
                 }

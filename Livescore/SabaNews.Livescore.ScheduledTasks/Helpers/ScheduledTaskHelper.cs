@@ -1,12 +1,12 @@
 ﻿namespace SabaNews.Livescore.ScheduledTasks.Helpers
 {
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+    using Models;
+    using SabaNews.Livescore.Provider.API.Helpers;
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.DependencyInjection;
-    using SabaNews.Livescore.Provider.API.Helpers;
-    using SabaNews.Livescore.ScheduledTasks.Models;
 
     public static class ScheduledTaskHelper
     {

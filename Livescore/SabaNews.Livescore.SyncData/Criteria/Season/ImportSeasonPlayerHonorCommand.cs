@@ -1,7 +1,7 @@
-﻿namespace SabaNews.Livescore.SyncData.Criteria.Season
-{
-    using SabaNews.Core.Models;
+﻿using SabaNews.Livescore.Core.Models;
 
+namespace SabaNews.Livescore.SyncData.Criteria.Season
+{
     public class ImportSeasonPlayerHonorCommand : BaseNonQueryCommand
     {
         public string PlayerHonorListJson { get; set; }

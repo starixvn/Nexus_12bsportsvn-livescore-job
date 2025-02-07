@@ -1,7 +1,7 @@
-﻿namespace SabaNews.Livescore.SyncData.Criteria.Player
-{
-    using SabaNews.Core.Models;
+﻿using SabaNews.Livescore.Core.Models;
 
+namespace SabaNews.Livescore.SyncData.Criteria.Player
+{
     public class ImportPlayerCommand : BaseNonQueryCommand
     {
         public string PlayerListJson { get; set; }

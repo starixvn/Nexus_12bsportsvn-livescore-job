@@ -1,13 +1,13 @@
 ﻿namespace SabaNews.Livescore.Provider.API.Tests
 {
+    using AutoFixture;
+    using Models.Matches;
+    using NSubstitute;
+    using SabaNews.Livescore.Models.Synchronous;
+    using Services;
     using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using AutoFixture;
-    using NSubstitute;
-    using SabaNews.Livescore.Models.Synchronous;
-    using SabaNews.Livescore.Provider.API.Models.Matches;
-    using SabaNews.Livescore.Provider.API.Services;
     using Xunit;
 
     public class FetchMatchServiceTests

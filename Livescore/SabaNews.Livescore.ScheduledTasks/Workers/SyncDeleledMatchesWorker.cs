@@ -1,13 +1,13 @@
 ﻿namespace SabaNews.Livescore.ScheduledTasks.Workers
 {
+    using Constants;
+    using Helpers;
+    using Models;
+    using SabaNews.Livescore.Core.Services;
+    using SabaNews.Livescore.Provider.API.Services;
+    using SabaNews.Livescore.SyncData.Services;
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using SabaNews.Core.Services;
-    using SabaNews.Livescore.Provider.API.Services;
-    using SabaNews.Livescore.ScheduledTasks.Constants;
-    using SabaNews.Livescore.ScheduledTasks.Helpers;
-    using SabaNews.Livescore.ScheduledTasks.Models;
-    using SabaNews.Livescore.SyncData.Services;
 
     public class SyncDeleledMatchesWorker : WorkerBase
     {
